@@ -8,7 +8,7 @@ namespace ApiDesafio001.Context
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         { }
-        public DbSet<AvaliaçaoMusica> AvaliaçaoMusicas { get; set; }
+        public DbSet<AvaliacaoMusica> AvaliacaoMusicas { get; set; }
         public DbSet<Musica> Musicas { get; set; }
     }
 }

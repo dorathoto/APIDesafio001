@@ -3,7 +3,6 @@ using ApiDesafio001.Models;
 using APIDesafio001.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace APIDesafio001.Controllers
@@ -19,31 +18,28 @@ namespace APIDesafio001.Controllers
 
         }
 
-
-
-
-        [HttpGet("{id}", Name = "ObterAvaliaçaoMusica")]
-        public ActionResult<AvaliaçaoMusica> Get(int id)
+        [HttpGet("{id}", Name = "ObterAvaliacaoMusica")]
+        public ActionResult<AvaliacaoMusica> Get(int id)
         {
-            var avaliaçaomusica = _context.Musicas.AsNoTracking().FirstOrDefault(p => p.AvaliaçaoMusicaId == id);
-            if (avaliaçaomusica == null)
+            var avaliacaomusica = _context.Musicas.AsNoTracking().FirstOrDefault(p => p.AvaliacaoMusicaId == id);
+            if (avaliacaomusica == null)
             {
                 return NotFound();
             }
-            return Ok(avaliaçaomusica);
+            return Ok(avaliacaomusica);
         }
 
         [HttpPost]
         public ActionResult Post([FromBody] NotasViewModel model)
         {
-            var nota = new AvaliaçaoMusica
+            var nota = new AvaliacaoMusica
             {
-                AvaliaçaoMusicaId = model.MusicaId,
+                AvaliacaoMusicaId = model.MusicaId,
                 Nota = model.Nota
             };
 
 
-            _context.AvaliaçaoMusicas.Add(nota);
+            _context.AvaliacaoMusicas.Add(nota);
             _context.SaveChanges();
 
             return Ok("Votado com sucesso");
