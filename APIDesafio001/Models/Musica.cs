@@ -12,7 +12,7 @@ namespace ApiDesafio001.Models
             Console.ReadLine();
         }
         [Key]
-        public string MusicaId { get; set; }
+        public int MusicaId { get; set; }
         [Required, MaxLength(100)]
         public string Nome { get; set; }
         [Required, MaxLength(100)]

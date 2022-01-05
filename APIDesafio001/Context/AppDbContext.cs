@@ -1,7 +1,7 @@
 ﻿using ApiDesafio001.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace APICatalogo.Context
+namespace ApiDesafio001.Context
 {
     public class AppDbContext : DbContext
     {
