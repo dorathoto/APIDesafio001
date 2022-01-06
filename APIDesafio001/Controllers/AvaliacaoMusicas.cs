@@ -3,6 +3,7 @@ using ApiDesafio001.Models;
 using APIDesafio001.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 
 namespace APIDesafio001.Controllers
@@ -19,9 +20,9 @@ namespace APIDesafio001.Controllers
         }
 
         [HttpGet("{id}", Name = "ObterAvaliacaoMusica")]
-        public ActionResult<AvaliacaoMusica> Get(int id)
+        public ActionResult<AvaliacaoMusica> Get(Guid id)
         {
-            var avaliacaomusica = _context.Musicas.AsNoTracking().FirstOrDefault(p => p.AvaliacaoMusicaId == id);
+            var avaliacaomusica = _context.Musicas.AsNoTracking().FirstOrDefault(p => p.MusicaId == id);
             if (avaliacaomusica == null)
             {
                 return NotFound();

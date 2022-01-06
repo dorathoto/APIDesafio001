@@ -2,6 +2,7 @@
 using ApiDesafio001.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,7 +26,7 @@ namespace APIDesafio001.Controllers
         }
 
         [HttpGet("{id}", Name = "ObterMusica")]
-        public ActionResult<Musica> Get(int id)
+        public ActionResult<Musica> Get(Guid id)
         {
             var musica = _context.Musicas.AsNoTracking().FirstOrDefault(p => p.MusicaId == id);
             if (musica == null)
@@ -46,7 +47,7 @@ namespace APIDesafio001.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] Musica musica)
+        public ActionResult Put(Guid id, [FromBody] Musica musica)
         {
             if (id != musica.MusicaId)
             {
@@ -59,7 +60,7 @@ namespace APIDesafio001.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult<Musica> Delete(int id)
+        public ActionResult<Musica> Delete(Guid id)
         {
             var musica = _context.Musicas.FirstOrDefault(p => p.MusicaId == id);
             if (musica == null)
