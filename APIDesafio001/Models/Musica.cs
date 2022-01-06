@@ -14,7 +14,7 @@ namespace ApiDesafio001.Models
         [MaxLength(100)]
         public int Ano { get; set; }
         [MaxLength(100)]
-        public int AvaliaçaoMusicaId { get; set; }
+        public Guid AvaliaçaoMusicaId { get; set; }
     }
 }
 
