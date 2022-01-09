@@ -8,10 +8,11 @@ namespace ApiDesafio001.Models
     {
         [Key]
         public Guid AvaliacaoMusicaId { get; set; }
-        [Required, MaxLength(100)]
+        public Guid MusicaId { get; set; }
         public string Nome { get; set; }
         [Required, MaxLength(100)]
         public int Nota { get; set; }
+        [Required]
         public Collection<Musica> Musicas { get; set; }
     }
 }

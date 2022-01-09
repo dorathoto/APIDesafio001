@@ -7,7 +7,6 @@ namespace ApiDesafio001.Models
     {
         [Key]
         public Guid MusicaId { get; set; }
-        [Required, MaxLength(100)]
         public string Nome { get; set; }
         [Required, MaxLength(100)]
         public string Artista { get; set; }
