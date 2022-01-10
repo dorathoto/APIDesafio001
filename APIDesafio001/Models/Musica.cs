@@ -5,7 +5,7 @@ namespace ApiDesafio001.Models
 {
     public class Musica
     {
-        [Key]
+        //[Key]
         public Guid MusicaId { get; set; }
         public string Nome { get; set; }
         [Required, MaxLength(100)]
@@ -13,7 +13,6 @@ namespace ApiDesafio001.Models
         [MaxLength(100)]
         public int Ano { get; set; }
         [MaxLength(100)]
-        public Guid AvaliaçaoMusicaId { get; set; }
     }
 }
 

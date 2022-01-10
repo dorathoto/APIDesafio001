@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace APIDesafio001.Controllers
 {
-    [Route("api/[Controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class MusicasController : ControllerBase
     {
@@ -18,6 +18,34 @@ namespace APIDesafio001.Controllers
             _context = contexto;
 
         }
+
+        [HttpGet]
+        public ActionResult Teste()
+        {
+
+            var produto = _context.Produtos
+                .Include(i => i.ProdutoCategoria)
+                .FirstOrDefault();
+
+            var categoria = produto.ProdutoCategoria.Nome;
+
+            //=========================================
+
+
+            var cat = _context.ProdutoCategorias.FirstOrDefault();
+            var prodId = cat.Produtos.FirstOrDefault().ProdutoId;
+
+            cat.Produtos.Where(w => w.ProdutoId == 3).FirstOrDefault();
+
+            foreach (var item in cat.Produtos)
+            {
+                var id = item.ProdutoId;
+            }
+
+
+            return Ok("Teste de código");
+        }
+
 
         [HttpGet]
         public ActionResult<IEnumerable<Musica>> Get()
